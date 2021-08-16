@@ -1,4 +1,4 @@
-import { Model } from 'mongoose';
+import { isValidObjectId, Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Pessoa, PessoaDocument } from '../schemas/pessoa.schema';
@@ -9,11 +9,14 @@ export class PessoaService {
     @InjectModel(Pessoa.name) private pessoaModel: Model<PessoaDocument>,
   ) {}
 
-  findAll(): Promise<Pessoa[]> {
+  async findAll(): Promise<Pessoa[]> {
     return this.pessoaModel.find().exec();
   }
 
-  findOneById(id: string): Promise<Pessoa> {
+  async findOneById(id: string): Promise<Pessoa> {
+    if (!isValidObjectId(id)) {
+      return null;
+    }
     return this.pessoaModel.findById(id).exec();
   }
 }
