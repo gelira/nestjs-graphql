@@ -2,6 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
 @Schema({
+  collection: 'pessoas',
   timestamps: {
     createdAt: 'created',
     updatedAt: 'updated',
@@ -12,7 +13,7 @@ export class Pessoa {
   @Prop({
     required: true,
   })
-  name: string;
+  nome: string;
 
   @Prop({
     min: 0,
