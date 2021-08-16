@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { join } from 'path';
+import { CoreModule } from './core/core.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { join } from 'path';
         uri: configService.get<string>('MONGO_CONNECTION_URL'),
       }),
     }),
+    CoreModule,
   ],
 })
 export class AppModule {}
