@@ -13,7 +13,7 @@ export class PessoaService {
     return this.pessoaModel.find().exec();
   }
 
-  find(id: string): Promise<Pessoa> {
+  findOneById(id: string): Promise<Pessoa> {
     return this.pessoaModel.findById(id).exec();
   }
 }
