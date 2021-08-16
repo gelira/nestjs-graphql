@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Pessoa, PessoaSchema } from './schemas/pessoa.schema';
 import { PessoaService } from './services/pessoa.service';
+import { PessoaResolver } from './resolvers/pessoa.resolver';
 
 @Module({
   imports: [
@@ -12,6 +13,6 @@ import { PessoaService } from './services/pessoa.service';
       },
     ]),
   ],
-  providers: [PessoaService],
+  providers: [PessoaService, PessoaResolver],
 })
 export class CoreModule {}
