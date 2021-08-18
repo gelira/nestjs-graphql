@@ -1,0 +1,15 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PessoaGQL {
+  email: String
+  id: String!
+  idade: Int!
+  nome: String!
+}
+
+type Query {
+  pessoa(id: String!): PessoaGQL
+  pessoas: [PessoaGQL!]!
+}
